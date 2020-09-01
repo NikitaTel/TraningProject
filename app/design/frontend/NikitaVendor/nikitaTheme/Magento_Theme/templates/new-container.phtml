@@ -1,0 +1,36 @@
+<div id="accordion">
+    <div data-role="collapsible">
+        <h2 data-role="trigger">Links</h2>
+    </div>
+
+    <ul data-role="content">
+        <li><a href="#">Nav1</a></li>
+        <li><a href="">Nav2</a></li>
+        <li><a href="">Nav3</a></li>
+    </ul>
+</div>
+
+<script>
+    require([
+        "jquery",
+        "accordion",
+        "matchMedia"
+    ], function($) {
+        let acc = $("#accordion");
+        acc.accordion({
+            "openedState": "active",
+            "multipleCollapsible": true
+        });
+
+        mediaCheck({
+            media: '(max-width: 767px)',
+            entry: function() {
+                acc.accordion({'collapsible' : true});
+                acc.accordion('deactivate');
+            },
+            exit: function() {
+                acc.accordion("destroy");
+            }
+        });
+    });
+</script>

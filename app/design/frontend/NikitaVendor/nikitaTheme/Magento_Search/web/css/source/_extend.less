@@ -1,0 +1,92 @@
+& when (@media-common=true) {
+    .block-search {
+        input {
+            margin: 0;
+            background: #eee;
+            border: none;
+            height: 4rem;
+            font-size: 13px;
+            font-family: "BrandonGrotesque-Regular", sans-serif;
+        }
+
+        .block-content .actions .action.search {
+            display: inline-block;
+            border: 0;
+            box-shadow: none;
+            line-height: inherit;
+            margin: 0;
+            padding: 0;
+            text-decoration: none;
+            text-shadow: none;
+            font-weight: 400;
+            top: 0;
+            right: 0;
+            z-index: 87;
+            height: 4rem;
+            width: 4rem;
+            background: #ccc;
+            border-radius: 0;
+            opacity: 1;
+
+            &:hover {
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .page-wrapper .header {
+        width: 97%;
+    }
+
+    .block-search {
+        z-index: 1;
+        width: 100%;
+        left: 0;
+        padding: 0;
+        top: 90px;
+        position: absolute;
+
+        .search .control {
+            border-top: none;
+        }
+
+        input {
+            margin: 0;
+            padding-right: 35px;
+            position: static;
+        }
+
+        label.label {
+            display: none;
+        }
+
+        .actions .action.search {
+            position: absolute;
+            bottom: 0;
+            top: unset;
+
+            span {
+                font-size: 0;
+            }
+
+            &:before {
+                font-size: 22px;
+                line-height: 22px;
+                color: #8f8f8f;
+                content: '\e615';
+                font-family: 'icons-blank-theme';
+                margin: 0;
+                vertical-align: top;
+                display: inline-block;
+                font-weight: normal;
+                overflow: hidden;
+                speak: none;
+                text-align: center;
+            }
+        }
+    }
+}

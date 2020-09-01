@@ -1,0 +1,409 @@
+& when (@media-common=true) {
+    @font-face {
+        font-family: 'BrandonGrotesque-Regular';
+        font-weight: normal;
+        font-style: normal;
+        src: url('../fonts/BrandonGrotesque-Regular.ttf');
+     }
+
+    @font-face {
+        font-family: "BrandonGrotesque-Bold";
+        font-weight: 400;
+        font-style: normal;
+        src: url('../fonts/BrandonGrotesque-Bold.ttf');
+    }
+
+    @font-face {
+        font-family: 'BrandonGrotesque-Medium';
+        font-weight: normal;
+        font-style: normal;
+        src: url('../fonts/BrandonGrotesque-Medium.ttf');
+    }
+
+
+    .header_promo {
+        background-color: rgb(10, 33, 72);
+    }
+
+    .header_promo__text {
+        color: rgb(255, 255, 255);
+        text-transform: uppercase;
+        text-align: center;
+        font-family: "BrandonGrotesque-Bold";
+        padding: .4rem 1.5rem;
+        letter-spacing: 0.5px;
+        line-height: 2.4rem;
+        font-size: 14px;
+    }
+
+    .header_promo__link {
+        color: #fff !important;
+        text-decoration: underline;
+    }
+
+    header.page-header {
+        background-color: white;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        background: white;
+        padding: 20px 0;
+        width: 75%;
+        margin: auto;
+
+        a:hover {
+            color: #14446e;
+            text-decoration: none;
+        }
+
+        .header-logo {
+            width: 19%;
+            display: flex;
+            justify-content: flex-end;
+
+           img {
+               width: 241px;
+           }
+        }
+
+        .header-left {
+            display: flex;
+            justify-content: space-around;
+            width: 26%;
+
+            .stores {
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                text-transform: uppercase;
+                font-size: 15px;
+                font-family: 'BrandonGrotesque-Medium';
+                color: #444;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    margin-right: .5rem;
+                    background: url(../images/sprites.view.svg) no-repeat;
+                    background-position: 0 -623px;
+                    width: 28px;
+                    height: 34px;
+                }
+            }
+
+            .customer-service {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                .customer-service-dropdown {
+                    display: flex;
+                    flex-direction: column;
+                    position: absolute;
+                    opacity: 0;
+                    visibility: hidden;
+                    top: 55px;
+                    left: 18px;
+                    min-width: 212px;
+                    border: .1rem solid #ccc;
+                    padding: 1.8rem 0 0;
+                    background: @color-white;
+                    transition: all .3s ease-out;
+                    z-index: 5;
+
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        display: inline-block;
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        top: -.6rem;
+                        right: 1.9rem;
+                        border-width: 0 5px 6px 5px;
+                        border-color: transparent transparent #ccc transparent;
+
+                    }
+
+                    &:after {
+                        content: "";
+                        position: absolute;
+                        display: inline-block;
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        right: 2rem;
+                        top: -.4rem;
+                        border-width: 0 .4rem .4rem .4rem;
+                        border-color: transparent transparent #fff transparent;
+                    }
+
+                    .service-title {
+                        font-size: 14px;
+                        font-family: "BrandonGrotesque-Bold";
+                        text-transform: uppercase;
+                        padding: 0 1.8rem 2rem;
+                    }
+
+                    .service-contacts {
+                        font-family: "BrandonGrotesque-Medium";
+                        padding: 0 1.8rem 1rem;
+                    }
+
+                    ul {
+                        margin: 0;
+                        padding: 0;
+
+                        li {
+                            border-top: .1rem solid #ccc;
+                            padding: 1.2rem 1.8rem;
+                            list-style: none;
+                            margin: 0;
+
+                            a {
+                                text-decoration: none;
+                                color: #444;
+                                font-family: "BrandonGrotesque-Medium";
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+
+                &:hover .customer-service-dropdown {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                &:before {
+                    content: "";
+                    display: block;
+                    background: url(../images/sprites.view.svg) no-repeat;
+                    margin-right: .5rem;
+                    background-position: 0 -591px;
+                    width: 32px;
+                    height: 32px;
+                }
+
+                &:after {
+                    content: "";
+                    display: block;
+                    background: url(../images/sprites.view.svg) no-repeat;
+                    margin-left: .5rem;
+                    background-position: 0 -80px;
+                    width: 20px;
+                    height: 16px;
+                }
+
+                > span {
+                    cursor: pointer;
+                    display: block;
+                    text-transform: uppercase;
+                    font-size: 15px;
+                    font-family: "BrandonGrotesque-Medium";
+                    color: #444;
+                }
+            }
+        }
+
+        .header-right {
+            display: flex;
+            width: 30%;
+            justify-content: space-around;
+
+            .header-search {
+                display: flex;
+                align-items: center;
+
+                .search-button:before {
+                    content: "";
+                    background: url(../images/sprites.view.svg) no-repeat;
+                    background-position: 0 -1129px;
+                    width: 24px;
+                    height: 24px;
+                    -webkit-font-smoothing: antialiased;
+                    -moz-osx-font-smoothing: grayscale;
+                    font-size: 16px;
+                    line-height: 32px;
+                    color: #757575;
+                    margin: 0;
+                    vertical-align: top;
+                    display: inline-block;
+                    font-weight: normal;
+                    overflow: hidden;
+                    speak: none;
+                    text-align: center;
+                }
+
+                input {
+                    margin: 0;
+                    background: #eee;
+                    border: none;
+                    height: 72%;
+                    font-size: 14px;
+                    font-family: "BrandonGrotesque-Regular",sans-serif;
+
+                    &:focus {
+                        background: #fff;
+                        border: 1px solid #ccc;
+                    }
+                }
+
+                .search-button {
+                    display: inline-block;
+                    background: none;
+                    -moz-box-sizing: content-box;
+                    border: 0;
+                    box-shadow: none;
+                    line-height: inherit;
+                    margin: 0;
+                    padding: 0;
+                    text-decoration: none;
+                    text-shadow: none;
+                    font-weight: 400;
+                    top: 0;
+                    right: 0;
+                    z-index: 1;
+                    height: 72%;
+                    width: 4.8rem;
+                    background: #ccc;
+                    border-radius: 0;
+                }
+            }
+
+            .header-sign_in {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+
+                a {
+                    cursor: pointer;
+                    display: block;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-family: "BrandonGrotesque-Medium";
+                    color: #444;
+                }
+
+                &:before {
+                    content: "";
+                    display: block;
+                    margin: 0 auto 1.5px;
+                    background: url(../images/sprites.view.svg) no-repeat;
+                    background-position: 0 -533px;
+                    width: 24px;
+                    height: 28px;
+                }
+            }
+
+            .minicart-wrapper .action.showcart {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+
+                .counter.qty {
+                    position: absolute;
+                    top: 15px;
+                    right: -1px;
+                    background: #14446e;
+                    border-radius: 50%;
+                    font-size: 11px;
+                    width: 11px;
+                    min-width: unset;
+                    height: 16px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 0;
+
+                    &.empty {
+                        display: none;
+                    }
+                }
+
+                .text {
+                    position: initial;
+                    width: unset;
+                    height: unset;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-family: "BrandonGrotesque-Medium";
+                    color: #444;
+                }
+
+                &:before {
+                    content: "";
+                    font-size: 22px;
+                    line-height: 28px;
+                    color: #757575;
+                    font-family: 'luma-icons';
+                    margin: 0;
+                    vertical-align: top;
+                    display: inline-block;
+                    font-weight: normal;
+                    overflow: hidden;
+                    speak: none;
+                    text-align: center;
+                    width: 28px;
+                    height: 30px;
+                    background: url(../images/sprites.view.svg) no-repeat;
+                    background-position: 0 -561px;
+                }
+            }
+        }
+    }
+}
+
+.media-width(@break, @extremum) when (@break='max') and (@extremum=@screen__m) {
+    .page-header {
+        border: none;
+
+        .header {
+            padding: 5px 0;
+
+            .header-left {
+                width: 16%;
+
+                .nav-toggle {
+                    position: initial;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    > span {
+                        font-size: 12px;
+                        text-transform: uppercase;
+                        position: initial;
+                        color: #444;
+                        font-family: "BrandonGrotesque-Medium";
+                        height: unset;
+                        width: unset;
+                    }
+
+                    &:before {
+                        line-height: 33px;
+                    }
+                }
+
+                .customer-service {
+                    display: none;
+                }
+
+                .stores {
+                    flex-direction: column;
+                    font-size: 12px;
+                }
+            }
+
+            .header-right {
+                width: 16%;
+            }
+        }
+    }
+}

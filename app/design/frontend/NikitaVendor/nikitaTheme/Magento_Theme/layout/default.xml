@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="header.container">
+            <container name="head-promo-wrapper" before="-">
+                <block name="head-promo" class="Magento\Cms\Block\Block" >
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">head-promo</argument>
+                    </arguments>
+                </block>
+            </container>
+
+            <container name="header-panel-wrapper" after="head-promo-wrapper" htmlTag="div" htmlClass="header">
+                <container name="header-left" htmlTag="div" htmlClass="header-left">
+                    <block name="header-stores" class="Magento\Framework\View\Element\Template" template="Magento_Theme::header-left.phtml"/>
+                    <container name="customer-service-wrapper" htmlTag="div" htmlClass="customer-service">
+                        <block name="service-option" class="Magento\Framework\View\Element\Template" template="Magento_Theme::mcHeader.phtml"/>
+                        <container name="cushetomer-service" label="Service">
+                            <block class="Magento\Cms\Block\Block" name="service">
+                                <arguments>
+                                    <argument name="block_id" xsi:type="string">block-service-dropdown</argument>
+                                </arguments>
+                            </block>
+                        </container>
+                    </container>
+                </container>
+                <container name="header-logo-wrapper">
+                    <block name="header-logo" class="Magento\Framework\View\Element\Template" template="Magento_Theme::mcLogo.phtml">
+
+                    </block>
+                </container>
+                <container name="header-right-wrapper" htmlTag="div" htmlClass="header-right">
+                    <block name="header-right" class="Magento\Customer\Block\Account\AuthorizationLink" template="Magento_Theme::login.phtml"/>
+                </container>
+            </container>
+        </referenceContainer>
+
+        <referenceContainer name="footer">
+            <referenceBlock name="footer_links" remove="true"/>
+            <container name="slider-wrapper">
+                <block name="slider-example" class="Magento\Framework\View\Element\Template" template="Magento_Theme::slider-example.phtml"/>
+            </container>
+            <container name="new-container" label="Main Content Top" after="footer_links">
+                <block class="Magento\Cms\Block\Block" name="additional-links">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">additional-links</argument>
+                    </arguments>
+                </block>
+            </container>
+
+            <container name="my-ac">
+                <block name="new-menu" template="Magento_Theme::new-menu.phtml"/>
+                <block name="block-ac" template="Magento_Theme::new-container.phtml"/>
+                <block template="Magento_Theme::back-to-top-button.phtml"/>
+            </container>
+        </referenceContainer>
+
+        <move element="minicart" destination="header-right-wrapper" after="-"/>
+        <move element="top.search" destination="header-right-wrapper" before="-" />
+        <referenceBlock name="header.panel.wrapper" remove="true"/>
+        <move element="logo" destination="header-left" before="-"/>
+    </body>
+</page>
